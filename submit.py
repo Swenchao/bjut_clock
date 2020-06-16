@@ -2,6 +2,7 @@ import pytz
 import requests
 from datetime import datetime
 
+server_key = ""  # server酱key,注册之后就可使用
 
 s = requests.Session()
 header = {"User-Agent": "Mozilla/5.0 (Linux; Android 10;  AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/66.0.3359.126 MQQBrowser/6.2 TBS/045136 Mobile Safari/537.36 wxwork/3.0.16 MicroMessenger/7.0.1 NetType/WIFI Language/zh",}
@@ -78,8 +79,18 @@ def submit(s: requests.Session, old: dict):
     result = r.json()
     if result.get('m') == "操作成功":
         print("打卡成功")
+        if server_key != "":
+            send_message(server_key, result.get('m'), new_daily)
     else:
         print("打卡失败，错误信息: ", r.json().get("m"))
+        if server_key != "":
+            send_message(server_key, result.get('m'), new_daily)
+
+
+# 微信通知
+def send_message(key, message, clock_info):
+    send_url = "https://sc.ftqq.com/{}.send?text={}&desp={}".format(key, message, clock_info)
+    requests.get(send_url)
 
 
 if __name__ == "__main__":
