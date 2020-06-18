@@ -10,7 +10,7 @@ s = requests.Session()
 server_key = ""  # server酱 key（不填无所谓，只不过无法收到通知）
 
 
-def login(s: requests.Session, username, password):
+def login(s: requests.Session):
     payload = {
         "username": "",  # 个人账号
         "password": ""  # 个人密码
