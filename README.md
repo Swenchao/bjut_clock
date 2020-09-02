@@ -47,3 +47,30 @@ Server酱网站：http://sc.ftqq.com/3.version
 
 首先点击仓库上方 Settings，然后点击 secrets
 
+![](https://github.com/Swenchao/bjut_clock/blob/master/images/1.png)
+
+然后新增一个新的 secrets
+
+![](https://github.com/Swenchao/bjut_clock/blob/master/images/2.png)
+
+最后以k-v形式输入你的账号和密码以及申请的server的key值（没有申请，这个可以不添加，不影响使用）
+
+username ：学号
+password ：密码
+key ：申请的server的key
+
+![](https://github.com/Swenchao/bjut_clock/blob/master/images/3.png)
+
+然后点击仓库上面的action
+
+![](https://github.com/Swenchao/bjut_clock/blob/master/images/5.png)
+
+点击那个长条按钮，因为我这已经添加，所以没有那个界面了.就是一直走肯定的回答，往下走就可以了，最后是这样的
+
+![](https://github.com/Swenchao/bjut_clock/blob/master/images/4.png)
+
+然后可以随便修改一点地方提交一下也会自动触发，这样就会在每天九点准时打卡了~
+
+
+
+
