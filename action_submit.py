@@ -11,8 +11,8 @@ except:
     server_key = ""
 
 try:
-    username: os.environ["username"] # 自己的账号
-    password: os.environ["password"] # 自己的密码
+    username = os.environ["username"] # 自己的账号
+    password = os.environ["password"] # 自己的密码
 except:
     print("未获得完整用户名和密码")
 
