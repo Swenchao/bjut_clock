@@ -35,3 +35,15 @@
 
 新增打卡微信通知，需要有Server酱的key，只需要登录就能获得一个key，放到脚本里面就可使用了~
 Server酱网站：http://sc.ftqq.com/3.version
+
+新增阿里云函数脚本代码（在源代码基础上略微修改（函数入口变化））——aliyun.py
+阿里云开通云函数，新建函数-->事件函数(运行环境选择python3)-->完成-->代码执行部分（index.py清空 粘贴 aliyun.py代码）-->触发器（创建触发器-->定时触发器）-->完结
+**注：** 最大时间延迟修改之前3s改成5s或10s，不然会超时
+
+
+3. 新增git action打卡脚本（action_submit.py）以及脚本依赖和action配置文件（.github/workflows/main.yml），以下为使用方法：
+
+首先，将自己的用户名和密码保存到仓库的 secrets 下，如图
+
+首先点击仓库上方 Settings，然后点击 secrets
+

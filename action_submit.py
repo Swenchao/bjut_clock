@@ -1,8 +1,20 @@
 import pytz
 import requests
 from datetime import datetime
+import os
 
-server_key = ""  # server酱key,登录之后就可使用
+# 以下个人内容全部放到仓库的secrets中（注意其中取值字段要跟自己的一致）
+
+try:
+    server_key = os.environ["key"]  # server酱key,登录之后就可使用
+except:
+    server_key = ""
+
+try:
+    username = os.environ["username"] # 自己的账号
+    password = os.environ["password"] # 自己的密码
+except:
+    print("未获得完整用户名和密码")
 
 s = requests.Session()
 header = {"User-Agent": "Mozilla/5.0 (Linux; Android 10;  AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/66.0.3359.126 MQQBrowser/6.2 TBS/045136 Mobile Safari/537.36 wxwork/3.0.16 MicroMessenger/7.0.1 NetType/WIFI Language/zh",}
@@ -10,11 +22,11 @@ s.headers.update(header)
 
 
 def login(s: requests.Session):
-    payload = {
-        "username": "",  # 自己的账号
-        "password": ""  # 自己的密码
+    sign_data = {
+        "username": username,  # 自己的账号
+        "password": password  # 自己的密码
     }
-    r = s.post("https://itsapp.bjut.edu.cn/uc/wap/login/check", data=payload)
+    r = s.post("https://itsapp.bjut.edu.cn/uc/wap/login/check", data=sign_data)
 
     if r.json().get('m') != "操作成功":
         print(r.text)
