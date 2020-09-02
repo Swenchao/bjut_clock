@@ -43,6 +43,8 @@ Server酱网站：http://sc.ftqq.com/3.version
 
 3. 新增git action打卡脚本（action_submit.py）以及脚本依赖和action配置文件（.github/workflows/main.yml），以下为使用方法：
 
+直接fork到自己仓库，然后添加自己信息，就可使用。
+
 首先，将自己的用户名和密码保存到仓库的 secrets 下，如图
 
 首先点击仓库上方 Settings，然后点击 secrets
