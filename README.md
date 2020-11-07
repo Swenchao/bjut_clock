@@ -2,6 +2,8 @@
 
 脚本有什么问题可发送邮件，进行询问：scwrite678@outlook.com
 
+学校不再要求每天打卡，可修改action的配置文件（https://github.com/Swenchao/bjut_clock/blob/master/.github/workflows/main.yml）将其中5 6行定时注释掉即可。
+
 # bjut_clock
 
 北工大疫情自动打卡脚本（北京工业大学  疫情）
