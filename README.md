@@ -41,17 +41,17 @@ Server酱网站：http://sc.ftqq.com/3.version
 
 登陆[云函数官网](https://fc.console.aliyun.com/fc/overview/cn-beijing)进行开通（免费的），然后按下面教程就能完成基本使用
 
-![](aliyun1.png)
+![](https://github.com/Swenchao/bjut_clock/blob/master/images/aliyun1.png)
 
-![](aliyun2.png)
+![](https://github.com/Swenchao/bjut_clock/blob/master/images/aliyun2.png)
 
-![](aliyun3.png)
+![](https://github.com/Swenchao/bjut_clock/blob/master/images/aliyun3.png)
 
 在上面的信息中，如果修改了函数入口，记得修改aliyun.py中的函数入口名称
 
-![](aliyun4.png)
+![](https://github.com/Swenchao/bjut_clock/blob/master/images/aliyun4.png)
 
-![](aliyun5.png)
+![](https://github.com/Swenchao/bjut_clock/blob/master/images/aliyun5.png)
 
 至此，定时器就添加完成了
 
