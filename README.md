@@ -53,6 +53,8 @@ Server酱网站：http://sc.ftqq.com/3.version
 
 ![](https://github.com/Swenchao/bjut_clock/blob/master/images/aliyun5.png)
 
+刚注意到，其中的cron是用的utc时间，比北京时间慢8小时，所以上面那个cron表达式应该是 0 0 0 * * ? 这代表了utc时间0点，即：北京时间8点。
+
 至此，定时器就添加完成了
 
 3. 新增git action打卡脚本（action_submit.py）以及脚本依赖和action配置文件（.github/workflows/main.yml），以下为使用方法：
