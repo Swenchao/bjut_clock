@@ -11,8 +11,8 @@ s.headers.update(header)
 
 def login(s: requests.Session):
     payload = {
-        "username": "",  # 自己的账号
-        "password": ""  # 自己的密码
+        "username": "S201961520",  # 自己的账号
+        "password": "123456a."  # 自己的密码
     }
     r = s.post("https://itsapp.bjut.edu.cn/uc/wap/login/check", data=payload)
 
@@ -98,6 +98,6 @@ if __name__ == "__main__":
 
     # 抓取昨天信息，用于今天提交
     yesterday_data = get_yesterday(s)
-
+    print(yesterday_data)
     # 提交
     submit(s, yesterday_data)

@@ -1,8 +1,8 @@
-# 注：编写此脚本目的是技术应用探索，大家请根据自己生活实际情况合理使用。请一切听从学校组织安排，不要存在侥幸，瞒报自己真实情况妨碍疫情防护，危害他人生命健康。
+# 注：编写此脚本目的是研究数据抓包、阿里云函数、gitaction等技术的使用，不要进行非法使用。大家一定要听从学校组织安排，不要心存侥幸，瞒报自己真实情况妨碍疫情防护，危害他人生命健康。
 
-脚本有什么问题可发送邮件，进行询问：scwrite678@outlook.com
+程序有什么不明白的问题可发送邮件，进行询问：scwrite678@outlook.com
 
-学校不再要求每天打卡，可修改action的[配置文件](https://github.com/Swenchao/bjut_clock/blob/master/.github/workflows/main.yml) 将其中5 6行定时注释掉即可。
+其中action的[配置文件](https://github.com/Swenchao/bjut_clock/blob/master/.github/workflows/main.yml) 中5 6行为定时语句。
 
 # bjut_clock
 
@@ -13,7 +13,7 @@
 
 ### 自动登录
 
-只需要将其中username和password修改成自己的就可以了
+如果是北工大的同学想学习其中相关技巧，只需要将其中username和password修改成自己的就可以尝试了
 
 ### 获取昨天数据
 
@@ -31,25 +31,29 @@
 
 剩下的就是重新进行封装提交了
 
-## 注：若是北工大的，只需要改下登录那块账号密码就可以使用了
-
-其中可能还有输入的，放到服务器改成日志就可以了~
-
-亲，如果满意，点星好评哦~
-
-
 ## 更新内容
 
 1. 新增打卡微信通知，需要有Server酱的key，只需要登录就能获得一个key，放到脚本里面就可使用了~
 
 Server酱网站：http://sc.ftqq.com/3.version
 
-2. 新增阿里云函数脚本代码（在源代码基础上略微修改（函数入口变化））——aliyun.py
+2. 新增阿里云函数学习脚本代码（在源代码基础上略微修改（函数入口变化））——aliyun.py 详细使用教程如下：
 
-阿里云开通云函数，新建函数-->事件函数(运行环境选择python3)-->完成-->代码执行部分（index.py清空 粘贴 aliyun.py代码）-->触发器（创建触发器-->定时触发器）-->完结
+登陆[云函数官网](https://fc.console.aliyun.com/fc/overview/cn-beijing)进行开通（免费的），然后按下面教程就能完成基本使用
 
-**注：** 最大时间延迟修改之前3s改成5s或10s，不然会超时
+![](aliyun1.png)
 
+![](aliyun2.png)
+
+![](aliyun3.png)
+
+在上面的信息中，如果修改了函数入口，记得修改aliyun.py中的函数入口名称
+
+![](aliyun4.png)
+
+![](aliyun5.png)
+
+至此，定时器就添加完成了
 
 3. 新增git action打卡脚本（action_submit.py）以及脚本依赖和action配置文件（.github/workflows/main.yml），以下为使用方法：
 
