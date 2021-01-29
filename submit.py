@@ -2,7 +2,7 @@ import pytz
 import requests
 from datetime import datetime
 
-server_key = "SCU101807T909ae2978027f3e022e8eda7031bb5715ee8137f3ef9d"  # server酱key,登录之后就可使用
+server_key = ""  # server酱key,登录之后就可使用
 
 s = requests.Session()
 header = {"User-Agent": "Mozilla/5.0 (Linux; Android 10;  AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/66.0.3359.126 MQQBrowser/6.2 TBS/045136 Mobile Safari/537.36 wxwork/3.0.16 MicroMessenger/7.0.1 NetType/WIFI Language/zh",}
@@ -11,8 +11,8 @@ s.headers.update(header)
 
 def login(s: requests.Session):
     payload = {
-        "username": "S201961520",  # 自己的账号
-        "password": "123456a."  # 自己的密码
+        "username": "",  # 自己的账号
+        "password": ""  # 自己的密码
     }
     r = s.post("https://itsapp.bjut.edu.cn/uc/wap/login/check", data=payload)
 
