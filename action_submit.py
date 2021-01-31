@@ -49,9 +49,9 @@ def get_yesterday(s: requests.Session):
 def submit(s: requests.Session, old: dict):
     
     r = s.post("https://itsapp.bjut.edu.cn/ncov/wap/default/save", data=old)
-    print(r)
+#     print(r)
     result = r.json()
-    print(result)
+#     print(result)
     if result.get('m') == "操作成功":
         if server_key != "":
             send_message(server_key, result.get('m'), old)
