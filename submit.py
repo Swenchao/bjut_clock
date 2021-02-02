@@ -35,18 +35,90 @@ def get_yesterday(s: requests.Session):
 
 
 def submit(s: requests.Session, old: dict):
-    r = s.post("https://itsapp.bjut.edu.cn/ncov/wap/default/save", data=old)
+
+    data = {
+        'ismoved': old['ismoved'],
+        'jhfjrq': old['jhfjrq'],
+        'jhfjjtgj': old['jhfjjtgj'],
+        'jhfjhbcc': old['jhfjhbcc'],
+        'sftjzgfxdq': old['sftjzgfxdq'],
+        'dqszyqfxdj': old['dqszyqfxdj'],
+        'tw': old['tw'],
+        'sfcxtz': old['sfcxtz'],
+        'sfjcbh': old['sfjcbh'],
+        'sfcxzysx': old['sfcxzysx'],
+        'qksm': old['qksm'],
+        'sfyyjc': old['sfyyjc'],
+        'jcjgqr': old['jcjgqr'],
+        'remark': old['remark'],
+        'address': old['address'],
+        'geo_api_info': old['geo_api_info'],
+        'area': old['area'],
+        'province': old['province'],
+        'city': old['city'],
+        'sfzx': old['sfzx'],
+        'sfjcwhry': old['sfjcwhry'],
+        'sfjchbry': old['sfjchbry'],
+        'sfcyglq': old['sfcyglq'],
+        'gllx': old['gllx'],
+        'glksrq': old['glksrq'],
+        'jcbhlx': old['jcbhlx'],
+        'jcbhrq': old['jcbhrq'],
+        'bztcyy': old['bztcyy'],
+        'sftjhb': old['sftjhb'],
+        'sftjwh': old['sftjwh'],
+        'sfsfbh': old['sfsfbh'],
+        'xjzd': old['xjzd'],
+        'jcwhryfs': old['jcwhryfs'],
+        'jchbryfs': old['jchbryfs'],
+        'szgj': old['szgj'],
+        'dqjzzt': old['dqjzzt'],
+        'ljrq': old['ljrq'],
+        'ljjtgj': old['ljjtgj'],
+        'ljhbcc': old['ljhbcc'],
+        'fjrq': old['fjrq'],
+        'fjjtgj': old['fjjtgj'],
+        'fjhbcc': old['fjhbcc'],
+        'fjqszgj': old['fjqszgj'],
+        'fjq_province': old['fjq_province'],
+        'fjq_city': old['fjq_city'],
+        'fjq_szdz': old['fjq_szdz'],
+        'jrfjjtgj': old['jrfjjtgj'],
+        'jrfjhbcc': old['jrfjhbcc'],
+        'fjyy': old['fjyy'],
+        'szsqsfty': old['szsqsfty'],
+        'sfxxxbb': old['sfxxxbb'],
+        'jcjg': old['jcjg'],
+        'date': datetime.now(tz=pytz.timezone("Asia/Shanghai")).strftime("%Y%m%d"),
+        'uid': old['uid'],
+        'created': old['created'],
+        'id': old['id'],
+        'gwszdd': '',
+        'sfyqjzgc': '',
+        'jcqzrq': old['jcqzrq'],
+        'sfjcqz': old['sfjcqz'],
+        'jrsfqzys': '',
+        'jrsfqzfy': '',
+        'szsqsfybl': old['szsqsfybl'],
+        'sfsqhzjkk': old['sfsqhzjkk'],
+        'sqhzjkkys': old['sqhzjkkys'],
+        'sfygtjzzfj': old['sfygtjzzfj'],
+        'gtjzzfjsj': old['gtjzzfjsj']
+    }
+
+    r = s.post("https://itsapp.bjut.edu.cn/ncov/wap/default/save", data=data)
+
     result = r.json()
     # print(result)
 
     if result.get('m') == "操作成功":
-        print("打卡成功")
+        # print("打卡成功")
         if server_key != "":
-            send_message(server_key, result.get('m'), old)
+            send_message(server_key, old['realname'] + result.get('m'), data)
     else:
-        print("打卡失败，错误信息: ", r.json().get("m"))
+        # print("打卡失败，错误信息: ", result.get("m"))
         if server_key != "":
-            send_message(server_key, old['realname'] + result.get('m'), old)
+            send_message(server_key, old['realname'] + result.get('m'), data)
 
 
 # 微信通知
@@ -62,6 +134,7 @@ if __name__ == "__main__":
 
     # 抓取昨天信息，用于今天提交
     yesterday_data = get_yesterday(s)
-    # print(yesterday_data)
+
     # 提交
     submit(s, yesterday_data)
+
